@@ -1,3 +1,5 @@
+import ButtonDeleteCustomer from "./ButtonDeleteCustomer";
+
 const TableCustomerComponent = ({ customberdData }) => {
   console.log("customer", customberdData);
   return (
@@ -15,6 +17,9 @@ const TableCustomerComponent = ({ customberdData }) => {
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Address
             </th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Action
+            </th>
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
@@ -26,13 +31,11 @@ const TableCustomerComponent = ({ customberdData }) => {
               </td>
               <td class="px-6 py-4 whitespace-nowrap">{customer.address}</td>
 
-              <td class="px-6 py-4 whitespace-nowrap">
+              <td class="px-6 py-4 whitespace-nowrap flex">
                 <button class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">
                   Edit
                 </button>
-                <button class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">
-                  Delete
-                </button>
+                <ButtonDeleteCustomer customerId={customer.id} />
               </td>
             </tr>
           ))}

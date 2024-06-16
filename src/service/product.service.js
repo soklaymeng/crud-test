@@ -42,3 +42,30 @@ export const insertCustomerService = async (customerData) => {
   const data = res.json();
   return data;
 };
+//Delete a customer service
+export const deleteCustomerService = async (customerId) => {
+  const res = await fetch(
+    `https://666e8207f1e1da2be5206de1.mockapi.io/endpoint/customers/${customerId}`,
+    {
+      method: "DELETE",
+    }
+  );
+  const data = res.json();
+  return data;
+};
+
+// Update customer service
+export const updateCustomerService = async (customerId, updatedData) => {
+  const res = await fetch(
+    `https://666e8207f1e1da2be5206de1.mockapi.io/endpoint/customers/${customerId}`,
+    {
+      method: "PUT",
+      body: JSON.stringify(updatedData),
+      headers: {
+        "content-type": "application/json",
+      },
+    }
+  );
+  const data = await res.json();
+  return data;
+};
