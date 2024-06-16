@@ -21,8 +21,24 @@ export async function getAllCustomberService() {
     "https://666e8207f1e1da2be5206de1.mockapi.io/endpoint/customers",
     {
       cache: "no-store",
+      next: { tags: ["customer"] },
     }
   );
   const data = await res.json();
   return data;
 }
+//Insert a new customer
+export const insertCustomerService = async (customerData) => {
+  const res = await fetch(
+    "https://666e8207f1e1da2be5206de1.mockapi.io/endpoint/customers",
+    {
+      method: "POST",
+      body: JSON.stringify(customerData),
+      headers: {
+        "content-type": "application/json",
+      },
+    }
+  );
+  const data = res.json();
+  return data;
+};

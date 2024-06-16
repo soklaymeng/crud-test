@@ -1,8 +1,6 @@
+import { handleCustomer } from "@/actions/customerAction";
+
 const FormCustomerComponent = () => {
-  async function handleCustomer(customerInput) {
-    "use server";
-    console.log("customer input: ", customerInput);
-  }
   return (
     <main className="container mx-auto p-4 mt-12 bg-white flex flex-col items-center justify-center text-gray-700">
       <div className="w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 mb-4">
